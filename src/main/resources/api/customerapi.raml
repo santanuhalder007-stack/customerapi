@@ -1,0 +1,64 @@
+#%RAML 1.0
+title: Customer API
+version: v1
+baseUri: /api/customers
+
+uses:
+  custLib: types/customer-types.raml
+  
+/customers:
+  get:
+    description: Retrieve all customers
+    responses:
+      200:
+        body:
+          application/json:
+            type: custLib.Customer[]
+            example:
+              [
+                {
+                  "id": "CUST001",
+                  "firstName": "John",
+                  "lastName": "Doe",
+                  "email": "john.doe@example.com",
+                  "phone": "555-1234"
+                }
+              ]
+      500:
+        body:
+          application/json:
+            type: custLib.ErrorResponse
+
+  post:
+    description: Create a new customer
+    body:
+      application/json:
+        type: custLib.NewCustomer
+        example:
+          {
+            "firstName": "Jane",
+            "lastName": "Smith",
+            "email": "jane.smith@example.com",
+            "phone": "555-9876"
+          }
+    responses:
+      201:
+        body:
+          application/json:
+            type: custLib.Customer
+            example:
+              {
+                "id": "CUST002",
+                "firstName": "Jane",
+                "lastName": "Smith",
+                "email": "jane.smith@example.com",
+                "phone": "555-9876"
+              }
+      400:
+        body:
+          application/json:
+            type: custLib.ErrorResponse
+      500:
+        body:
+          application/json:
+            type: custLib.ErrorResponse

@@ -1,0 +1,13 @@
+{
+  "main": "customerapi.raml",
+  "name": "CustomerAPI",
+  "groupId": "ba6b9e93-41b2-485b-aa1b-8934f5ed27ee",
+  "assetId": "customerapi",
+  "version": "1.0.1",
+  "classifier": "raml",
+  "tags": [],
+  "descriptorVersion": "1.0.0",
+  "organizationId": "ba6b9e93-41b2-485b-aa1b-8934f5ed27ee",
+  "apiVersion": "v1",
+  "originalFormatVersion": "1.0"
+}

@@ -1,0 +1,26 @@
+#%RAML 1.0 Library
+
+types:
+  Customer:
+    type: object
+    properties:
+      id: string
+      firstName: string
+      lastName: string
+      email: string
+      phone?: string
+
+  NewCustomer:
+    type: object
+    properties:
+      firstName: string
+      lastName: string
+      email: string
+      phone?: string
+
+  ErrorResponse:
+    type: object
+    properties:
+      errorCode: string
+      message: string
+      correlationId: string

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:workday="http://www.mulesoft.org/schema/mule/workday" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/workday http://www.mulesoft.org/schema/mule/workday/current/mule-workday.xsd">
+	<flow name="post-customerFlow" doc:id="ecd08ca9-aa2f-4ba8-a083-0c8aee800b3c" >
+		<ee:cache doc:name="Cache" doc:id="d9a815a1-a12f-41bd-b9e0-e7a01ef6e011" >
+			<logger level="INFO" doc:name="Logger" doc:id="c7e68f0b-0e69-4836-816d-1f7ca74470b5" message="Allowed in Cache"/>
+		</ee:cache>
+		<ee:transform doc:name="Transform Message" doc:id="7c910b99-ff63-4c19-b440-4a849527afb0" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+payload
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="50b52ad2-504a-4486-8ebd-3190f3be32ba" message="#[payload]"/>
+	</flow>
+</mule>
